@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useState } from "react";
-import { json } from "react-router-dom";
+// import { json } from "react-router-dom";
 import Card from "../components/Card";
 
 const Photos = () => {
@@ -9,7 +9,7 @@ const Photos = () => {
     const [submited, setSubmited] = useState("");
     const [search, setSearch] = useState("");
     const [loading, setLoading] = useState(false);
-    const [error, setError] = useState(null);
+    const [error] = useState(null);
 
     const deletePhoto = (id) => {
         fetch(`http://localhost:3001/photos/${id}`, {
@@ -34,7 +34,7 @@ const Photos = () => {
             setLoading(false);
         };
         photo();
-    }, [sort, submited]);
+    }, [sort, submited, search]);
 
     useEffect(() => {
         setLoading(true);
